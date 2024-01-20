@@ -19,7 +19,8 @@ export const PeriodicTable =()=>{
   
   const elements = useElementStore(state=>state.elements)
   const { setSelectedElement,selectedElement } = useElementStore();
-
+  const plv= elements.find((category)=>category ='metalloid')
+  console.log(plv)
 const handleClick = (element) => () => {
   console.log(element)
 setSelectedElement(element);
@@ -29,15 +30,17 @@ setSelectedElement(element);
 
 return(
   <>
-<section className='h-screen flex items-center justify-center bg-slate-800 flex-col'  >
+<section className={`h-screen flex items-center justify-center bg-slate-800 flex-col ${selectedElement ? 'blur-sm':''}`}  >
 <div className='grid  grid-cols-18  grid-rows-7 gap-1'>
   {
+    
     elements.map(element=>(
-      <div  onClick={handleClick(element)}key={element.name} className='bg-clip-border border-2  cursor-pointer'  style={{
+      <div  onClick={handleClick(element)}key={element.name} className='bg-clip-border border-2  cursor-pointer '   style={{
         gridColumn: element.xpos,
         gridRow: element.ypos,
-        borderColor: colorMap[element.category],  
         backgroundColor: colorMap[element.category],
+        borderColor: selectedElement&& selectedElement.number===element.number ? 'yellow': colorMap[element.category],
+        
       }}>
         <p className='text-white text-sm'>{element.number}</p>
         <h1 className='text-white  text-center  font-extrabold'>{element.symbol}</h1>

@@ -11,7 +11,7 @@ export const Modal=()=>{
   }
   return(
     <main className=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <section key={element.number}>
+      <section key={element.number}clas>
       <article   className='flex flex-col items-center'>
         <div className='flex z-0 w-96 h-48'>
           <div>
@@ -25,7 +25,7 @@ export const Modal=()=>{
             </div>
           </div>
         </div>
-        <section className=' w-96'>
+        <section className=' w-96 bg-white'>
           <h1 className=' bg-slate-400 w-96  text-center'>overwiev</h1>
           <h1>Summary</h1>
           <p>{element.summary}</p>
@@ -39,7 +39,7 @@ export const Modal=()=>{
           <p>{element.shells}</p>
           <h1>Color</h1>
       </section>
-      <section className='w-96'>
+      <section className='w-96 bg-gray-600'>
         <h1 className=' bg-gray-800'>Properties</h1>
         <h1>ATOMIC NUMBER:</h1>
         <p>{element.number}</p>
@@ -65,7 +65,7 @@ export const Modal=()=>{
         <p>{element.electron_configuration}</p>
         
       </section>
-      <section className='w-96'>
+      <section className='w-96 bg-orange-400'>
         <h1>Reactivity</h1>
         <h1>ELECTRONEGATIVITY PAULING:</h1>
         <p>{element.electronegativity_pauling}</p>
