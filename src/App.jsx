@@ -7,6 +7,7 @@ function App() {
 return(
   <>
   <main>
+    <h1 className=' fixed flex items-center justify-center'>Periodic Table</h1>
   <PeriodicTable/>
   </main>
 
