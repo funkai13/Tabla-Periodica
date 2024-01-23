@@ -1,4 +1,5 @@
 import './App.css'
+import { Header } from './components/Header'
 import {PeriodicTable} from './components/PeriodicTable'
 import { useElementStore } from './store/element'
 
@@ -7,7 +8,7 @@ function App() {
 return(
   <>
   <main>
-    <h1 className=' fixed flex items-center justify-center'>Periodic Table</h1>
+  <Header></Header>
   <PeriodicTable/>
   </main>
 

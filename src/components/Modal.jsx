@@ -8,26 +8,12 @@ import { useGLTF,Stage, PresentationControls, Shadow, OrbitControls } from "@rea
 
 
 export const Modal=()=>{
-  const selectedElement =useElementStore(state=>state.selectedElement)
-  const element=useElementStore(state=>state.selectedElement)
-  const clearSelectedElement= useElementStore(state=>state.clearSelectedElement)
-  const goNextElement =useElementStore(state=>state.goNextElement)
-  const colorMap = {
-    "noble gas": "#FFBC42",
-    "alkaline earth metal": "#EC674E",
-    "diatomic nonmetal": "#D81159",
-    "alkali metal": "#8F2D56",
-    "transition metal": "#58586B",
-    "post-transition metal": "#218380",
-    "lanthanide": "#4AABAF",
-    "metalloid": "#73D2DE",
-    "polyatomic nonmetal": "#909090",
-    "actinide":"#70abfa" 
-  }
+const selectedElement =useElementStore(state=>state.selectedElement)
+const element=useElementStore(state=>state.selectedElement)
+const clearSelectedElement= useElementStore(state=>state.clearSelectedElement)
+const goToNextElement =useElementStore(state=>state.goToNextElement)
+const colorMap = useElementStore(state=>state.colorMap)
 
-  
-  
-  
   console.log(element)
   if(!selectedElement){
     return null
@@ -80,6 +66,7 @@ export const Modal=()=>{
               <h1>MELTING POINT: {element.melt}K</h1>
               <h1>BOILING POINT: {element.boil}K</h1>
               <h1>ELECTRON CONFIGURATION: {element.electron_configuration}</h1>
+              <button onClick={goToNextElement}>sigueitne elemento</button>
             </div>
         </div>
     </div>
