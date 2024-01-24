@@ -2,6 +2,8 @@ import { useElementStore } from "../store/element";
 import { Model } from "./Model";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF,Stage, PresentationControls, Shadow, OrbitControls } from "@react-three/drei";
+import { GitHubIcon, GoBackIcon, GoNextIcon } from "./Icons";
+
 
 
 
@@ -13,6 +15,7 @@ const element=useElementStore(state=>state.selectedElement)
 const clearSelectedElement= useElementStore(state=>state.clearSelectedElement)
 const goToNextElement =useElementStore(state=>state.goToNextElement)
 const colorMap = useElementStore(state=>state.colorMap)
+const goPreviousElement = useElementStore(state=>state.goPreviousElement)
 
   console.log(element)
   if(!selectedElement){
@@ -45,6 +48,7 @@ const colorMap = useElementStore(state=>state.colorMap)
                 </button>
             
             </div>
+            
             <div>
               {element.bohr_model_3d &&  
               <Canvas  className=" absolute cursor-pointer"dpr={[1,2]} shadows camera={{fov:45}}>
@@ -54,6 +58,14 @@ const colorMap = useElementStore(state=>state.colorMap)
               </Stage>
               </Canvas> } 
             
+            </div>
+            <div className="flex justify-between  pr-2 pl-2">
+              <button  onClick={goPreviousElement}className="fill-white">
+                <GoBackIcon/>
+              </button>
+              <button onClick={goToNextElement} className="fill-white">
+              <GoNextIcon/>
+              </button>
             </div>
             <div className='p-4 md:p-5 space-y-4 '>
               <h1 className='text-white'>{element.summary}</h1>
@@ -66,7 +78,7 @@ const colorMap = useElementStore(state=>state.colorMap)
               <h1>MELTING POINT: {element.melt}K</h1>
               <h1>BOILING POINT: {element.boil}K</h1>
               <h1>ELECTRON CONFIGURATION: {element.electron_configuration}</h1>
-              <button onClick={goToNextElement}>sigueitne elemento</button>
+              <button onClick={goToNextElement}><GitHubIcon/></button>
             </div>
         </div>
     </div>
