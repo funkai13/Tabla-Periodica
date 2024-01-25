@@ -26,63 +26,80 @@ export const useElementStore = create((set,get)=>({
         goToNextElement: () => {
             const {elements,selectedElement}=get()
             const currentElement = elements.find((element) => element.xpos === selectedElement.xpos && element.ypos===selectedElement.ypos) 
+            let nextXpos = currentElement.xpos+1
+            let nextYpos = currentElement.ypos
+            if (currentElement) {
+                const numRows = 10;
+                const numCols = 18;
 
-    if (currentElement) {
+                let nextXpos = currentElement.xpos + 1;
+                let nextYpos = currentElement.ypos;
 
-        let nextXpos = currentElement.xpos + 1;
-        let nextYpos = currentElement.ypos;
-        
+            
+                for (let y = nextYpos; y <= 10; y++) {
+                    for (let x = nextXpos; x <= 19; x++) {
+                    if (x >18) {
+                        x = 1;
+                        y++;
+                    }
+                    if(y>10){
+                        y=1
+                    }
 
-        if (nextXpos > 18) {
-            nextXpos = 1;
-            nextYpos += 1;
-
-
-            if (nextYpos > 7) {
-                nextYpos = 1;
+                    const nextElement = elements.find(
+                    (element) => element.xpos === x && element.ypos === y)
+                    if (nextElement === null) {
+                        continue;
+                    }
+                    if (nextElement) {
+                        set({ selectedElement: nextElement })
+                        return;
+                }
             }
         }
-
-        let nextElement = elements.find(
-            (element) => element.xpos === nextXpos && element.ypos === nextYpos
-        );
-
-        
-        if (nextElement) {
-            set({ selectedElement: nextElement });
-        }
     }
+
 },
             
         
         goPreviousElement:()=>{
             const {elements,selectedElement}=get()
             const currentElement = elements.find((element) => element.xpos === selectedElement.xpos && element.ypos===selectedElement.ypos) 
-        
-            if (selectedElement){
-                let nextXpos = currentElement.xpos - 1;
-                let nextYpos = currentElement.ypos;
-                
-        
-                if (nextXpos < 1) {
-                    nextXpos = 18;
-                    nextYpos -= 1;
-        
-        
-                    if (nextYpos > 7) {
-                        nextYpos = 1;
-                    }
+            let nextXpos = currentElement.xpos+1
+            let nextYpos = currentElement.ypos
+          if (currentElement) {
+        const numRows = 10;
+        const numCols = 18;
+
+        let previousXpos = currentElement.xpos -1;
+        let previousYpos = currentElement.ypos;
+
+            
+        for (let y = previousYpos; y <= 10; y--) {
+            for (let x = previousXpos; x <= 18; x--) {
+                if (x <1) {
+                    x = 18;
+                    y--;
                 }
-        
-                let nextElement = elements.find(
-                    (element) => element.xpos === nextXpos && element.ypos === nextYpos
+                if(y<1){
+                    y=10
+                }
+
+                const nextElement = elements.find(
+                    (element) => element.xpos === x && element.ypos === y
                 );
-        
-                
+
+                if (nextElement === null) {
+                    continue;
+                }
                 if (nextElement) {
                     set({ selectedElement: nextElement });
+                    return;
                 }
             }
+        }
+    }
+
         },
 
 }))

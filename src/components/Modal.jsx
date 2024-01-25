@@ -67,6 +67,7 @@ const goPreviousElement = useElementStore(state=>state.goPreviousElement)
               <GoNextIcon/>
               </button>
             </div>
+           
             <div className='p-4 md:p-5 space-y-4 '>
               <h1 className='text-white'>{element.summary}</h1>
             </div>
@@ -78,7 +79,6 @@ const goPreviousElement = useElementStore(state=>state.goPreviousElement)
               <h1>MELTING POINT: {element.melt}K</h1>
               <h1>BOILING POINT: {element.boil}K</h1>
               <h1>ELECTRON CONFIGURATION: {element.electron_configuration}</h1>
-              <button onClick={goToNextElement}><GitHubIcon/></button>
             </div>
         </div>
     </div>

@@ -27,7 +27,7 @@ return(
         gridColumn: element.xpos,
         gridRow: element.ypos,
         backgroundColor: colorMap[element.category],
-        borderColor: selectedElement&& selectedElement.number===element.number ? 'yellow': colorMap[element.category],
+        borderColor: selectedElement&& selectedElement.number===element.number ? 'red': colorMap[element.category],
         
       }}>
         <p className='text-white text-xs pl-1'>{element.number}</p>
