@@ -8,7 +8,7 @@ function App() {
 return(
   <>
   <main>
-  <Header></Header>
+  <Header/>
   <PeriodicTable/>
   </main>
 
