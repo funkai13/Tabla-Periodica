@@ -67,7 +67,6 @@ const goPreviousElement = useElementStore(state=>state.goPreviousElement)
               <GoNextIcon/>
               </button>
             </div>
-           
             <div className='p-4 md:p-5 space-y-4 '>
               <h1 className='text-white'>{element.summary}</h1>
             </div>

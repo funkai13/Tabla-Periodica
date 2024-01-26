@@ -17,13 +17,13 @@ setSelectedElement(element);
 
 return(
   <>
-<section className={`h-screen flex items-center justify-center bg-slate-800 flex-col ${selectedElement ? 'blur-sm':''}`}  >
-<div className='grid  grid-cols-18  grid-rows-7 gap-1'>
+<section className={`xl:h-screen flex items-center justify-center bg-slate-800  xl:pt-0  pt-20 ${selectedElement ? 'blur-sm':''}`}  >
+<div className='xl:grid  xl:grid-cols-18  xl:grid-rows-7 xl:gap-1 flex flex-col gap-1'>
 
   {
     
     elements.map(element=>(
-      <div  onClick={handleClick(element)}key={element.name} className='bg-clip-border border-2  cursor-pointer hover:scale-125 rounded-md p-1 w-20 h-20 transition ease-in-out delay-75 '   style={{
+      <div  onClick={handleClick(element)}key={element.name} className='bg-clip-border border-2  cursor-pointer hover:scale-125 rounded-md xl:p-1 xl:w-20 xl:h-20 transition ease-in-out delay-75  '   style={{
         gridColumn: element.xpos,
         gridRow: element.ypos,
         backgroundColor: colorMap[element.category],
@@ -32,7 +32,7 @@ return(
       }}>
         <p className='text-white text-xs pl-1'>{element.number}</p>
         <h1 className='text-white  text-center font-medium text-2xl '>{element.symbol}</h1>
-        <h1 className='text-xs text-white text-center mb-px '>{element.name}
+        <h1 className='text-xs font-extralight text-white text-center mb-px '>{element.name}
         </h1>
       </div>
  )) } 
