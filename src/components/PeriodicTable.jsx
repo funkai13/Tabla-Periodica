@@ -23,7 +23,7 @@ return(
   {
     
     elements.map(element=>(
-      <div  onClick={handleClick(element)}key={element.name} className='bg-clip-border border-2  cursor-pointer hover:scale-125 rounded-md xl:p-1 xl:w-20 xl:h-20 transition ease-in-out delay-75  '   style={{
+      <div  onClick={handleClick(element)}key={element.name} className='bg-clip-border border-2  cursor-pointer hover:scale-125 rounded-md xl:p-1 xl:w-20  transition ease-in-out delay-75  '   style={{
         gridColumn: element.xpos,
         gridRow: element.ypos,
         backgroundColor: colorMap[element.category],
