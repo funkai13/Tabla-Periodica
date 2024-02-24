@@ -7,7 +7,6 @@ export const PeriodicTable =()=>{
 
 const elements = useElementStore(state=>state.elements)
 const { setSelectedElement,selectedElement } = useElementStore();
-const plv= elements.find((category)=>category ='metalloid')
 const colorMap = useElementStore(state=>state.colorMap)
 const handleClick = (element) => () => {
 setSelectedElement(element);
